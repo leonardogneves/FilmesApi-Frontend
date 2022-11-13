@@ -1,1 +1,24 @@
-<p>Em construção</p>
+<header>
+  <div class="bg-header">
+    <div class="d-flex justify-content-center w-100">
+      <button class="btn-header mx-2 my-1">
+        Início
+      </button>
+      <button class="btn-header mx-2 my-1">
+        Projetos
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="nome-idade">
+    <h4>Leonardo Gil Neves, 21 anos</h4>
+    <a>Atualmente trabalhando como desenvolvedor Front-end júnior.</a>
+    </div>
+  <div class="d-flex bg-sobre-mim">
+  <a class="sobre-mim">Muito prazer, gostaria de me apresentar a você... Tudo bem?</a>
+  <button class="btn-anim btn-design-sobre-mim" [style.opacity]="apresentacaoValidate == true ? '1' : ''">Sim, vamos lá!</button>
+  <button class="btn-anim btn-design-sobre-mim" [style.opacity]="apresentacaoValidate == true ? '1' : ''">Talvez mais tarde.</button>
+  </div>
+</main>

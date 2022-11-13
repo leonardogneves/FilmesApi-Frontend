@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  apresentacaoValidate: boolean = false;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.teste();
   }
 
+
+  teste () {
+    this.apresentacaoValidate = false;
+    setTimeout(()=>{                           // <<<---using ()=> syntax
+      this.apresentacaoValidate = true;
+  }, 3500);
+  };
 }
