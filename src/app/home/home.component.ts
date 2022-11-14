@@ -7,19 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  apresentacaoValidate: boolean = false;
+  showApresentacao: boolean = false;
+  showSobreMim: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
-    this.teste();
+    this.showBtnApresentacao();
+    this.showSobreMim == false;
   }
 
 
-  teste () {
-    this.apresentacaoValidate = false;
-    setTimeout(()=>{                           // <<<---using ()=> syntax
-      this.apresentacaoValidate = true;
+  showBtnApresentacao () {
+    setTimeout(()=>{
+      this.showApresentacao = true;
   }, 3500);
   };
+
+  showMsgSobreMim () {
+    this.showSobreMim
+
+  }
 }

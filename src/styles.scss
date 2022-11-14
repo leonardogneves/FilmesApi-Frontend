@@ -55,7 +55,7 @@
     margin: 2rem 1rem;
   }
 
-  .sobre-mim {
+  .apresentacao {
     box-shadow: .6em 0 0 #8C7853;
     margin: 2rem 1rem;
     width: 50ch;
@@ -99,4 +99,30 @@
       color: #FFFFFF;
     }
   }
+
+  .bg-sobre-mim {
+    display: flex;
+  }
+
+  .sobre-mim {
+    width: 800px;
+    height: 200px;
+    left: -1000px;
+    margin: 2rem 1rem;
+    position: absolute;
+    text-align: justify;
+    font-weight: 400;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 0.2s;
+  }
+
+  @-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
 }
