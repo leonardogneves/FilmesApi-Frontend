@@ -10,6 +10,12 @@
   outline: 0 !important;
 } //Remove a borda de qualquer elemento focado e ou clicado.
 
+.centerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
 
 @media screen and (min-width: 1024px) {
 
@@ -22,107 +28,8 @@
     display: flex;
     justify-content: center;
     width: 100vw;
+    height: 20px;
     border: 1px solid #5C3317;
   }
 
-  .btn-header {
-    background-color: #8C7853;
-    color: #ffffff;
-    padding: 0rem 1rem;
-    border: 2px solid #5C3317;
-    border-radius: 6px;
-    &:hover {
-    background-color: #238E23;
-    outline: none;
-  }
-  }
-
-  .logo {
-    display: flex;
-    padding: 0rem;
-  }
-
-  .object-logo{
-    width: 150px;
-    height: 50px;
-  }
-
-  .nome-idade {
-    color: #5C3317;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 2rem 1rem;
-  }
-
-  .apresentacao {
-    box-shadow: .6em 0 0 #8C7853;
-    margin: 2rem 1rem;
-    width: 50ch;
-    overflow: hidden;
-    color: #5C3317;
-    white-space: nowrap;
-    font-weight: 500;
-    animation: caret .3s step-end infinite alternate,
-               type 3s steps(96, end)
-  }
-
-  @keyframes type {
-    0% {
-      width: 0;
-    }
-
-  }
-  @keyframes caret {
-    100% {
-      box-shadow: .6em 0 0 transparent;
-    }
-  }
-
-  .btn-anim {
-    opacity: 0;
-    transition: opacity 3s;
-  }
-
-  .btn-design-sobre-mim {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0rem 1rem;
-    margin: 25px 10px;
-    border: 1px solid #5C3317;
-    border-radius: 3px;
-    outline: none;
-    &:hover {
-      transition: 5ms;
-      background-color: #8C7853;
-      color: #FFFFFF;
-    }
-  }
-
-  .bg-sobre-mim {
-    display: flex;
-  }
-
-  .sobre-mim {
-    width: 800px;
-    height: 200px;
-    left: -1000px;
-    margin: 2rem 1rem;
-    position: absolute;
-    text-align: justify;
-    font-weight: 400;
-    -webkit-animation: slide 0.5s forwards;
-    -webkit-animation-delay: 2s;
-    animation: slide 0.5s forwards;
-    animation-delay: 0.2s;
-  }
-
-  @-webkit-keyframes slide {
-    100% { left: 0; }
-}
-
-@keyframes slide {
-    100% { left: 0; }
-}
 }

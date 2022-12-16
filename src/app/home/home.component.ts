@@ -1,3 +1,4 @@
+import { MovieService } from './../movie.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,25 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  showApresentacao: boolean = false;
-  showSobreMim: boolean = false;
+  resultadoFilme: any;
 
-  constructor() { }
+  constructor(
+    public movieService: MovieService
+  ) { }
 
   ngOnInit() {
-    this.showBtnApresentacao();
-    this.showSobreMim == false;
+    this.movieService.listarTodosProdutos();
+    this.pegaFilme();
   }
 
-
-  showBtnApresentacao () {
-    setTimeout(()=>{
-      this.showApresentacao = true;
-  }, 3500);
-  };
-
-  showMsgSobreMim () {
-    this.showSobreMim
-
+  pegaFilme() {
+    this.movieService.listarTodosProdutos().subscribe((r: any) => {
+      this.resultadoFilme = r;
+    })
   }
+
 }

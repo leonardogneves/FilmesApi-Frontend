@@ -1,32 +1,17 @@
 <header>
   <div class="bg-header">
-    <div class="d-flex justify-content-center w-100">
-      <button class="btn-header mx-2 my-1">
-        Início
-      </button>
-      <button class="btn-header mx-2 my-1">
-        Projetos
-      </button>
-    </div>
   </div>
 </header>
 
 <main>
-  <div class="nome-idade">
-    <h4>Leonardo Gil Neves, 21 anos</h4>
-    <a>Atualmente trabalhando como desenvolvedor Front-end júnior.</a>
-    </div>
-  <div class="d-flex bg-apresentacao">
-  <a class="apresentacao">Muito prazer, gostaria de me apresentar a você... Tudo bem?</a>
-  <button class="btn-anim btn-design-sobre-mim" [style.opacity]="showApresentacao == true ? '1' : ''" (click)="showSobreMim = true">Sim, vamos lá!</button>
-  <button class="btn-anim btn-design-sobre-mim" [style.opacity]="showApresentacao == true ? '1' : ''" (click)="showSobreMim = false">Talvez mais tarde.</button>
-  </div>
-  <div *ngIf="showSobreMim == true" class="bg-sobre-mim">
-  <a class="sobre-mim">Sou uma pessoa simples, porém muito ambiciosa, desde pequeno fui de trocar o meu tempo
-  de andar de bicicleta na rua ou jogar futebol com as crianças, para ficar no meu computador pesquisando sobre Hardware, entendendo o que era "FPS", "DPI", ou "Tutorial de como baixar placa de vídeo hahaha",
-  comecei a estudar programação e construir meus próprios sites em 2020, o básico do básico em Html e Css, porém antes mesmo disso eu já "Programava", meus loops de repetição dentro da engine
-  Rpg Maker, sendo super apaixonado por jogos, meu primeiro contato com algo mais robusto foi ai, em 2022/jan eu conquistei a minha primeira oportunidade na área de programação
-  entrei como Desenvolvedor Front End, Angular/Typescript e nessa primeira experiência, na qual me encontro até o momento atual, já tive contato com Flutter, .Net, C# e muuuito Git, enfim, sobre mim é isso
-  podemos marcar uma reunião para que eu possa me apresentar melhor a você?</a>
-</div>
+<table>
+  <th>Titulo</th>
+  <th>Gênero</th>
+  <th>Duração</th>
+  <tr *ngFor="let r of resultadoFilme">
+    <td>{{r.titulo}}</td>
+    <td>{{r.genero}}</td>
+    <td>{{r.duracao}}</td>
+  </tr>
+</table>
 </main>
