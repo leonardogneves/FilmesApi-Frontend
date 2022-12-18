@@ -1,35 +1,231 @@
-/* You can add global styles to this file, and also import other style files */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  text-decoration: none;
+
+// #Region Logo
+
+$t: 1s;
+$d: 0.08em;
+$n: 3;
+$e: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+$front: black;
+$back: lightblue;
+html{
+	background: white;
 }
 
-*:focus {
-  outline: 0 !important;
-} //Remove a borda de qualquer elemento focado e ou clicado.
+.logo_title{
+	font-family: Futura, sans-serif;
+	font-weight: 900;
+	font-size: 80px;
+	padding: 80px;
 
-.centerContent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+	@keyframes ani{
+		0%{
+			transform: translate3d(0,0,0);
+			text-shadow: 0em 0em 0 $back;
+			color: $front;
+		}
+		30%{
+			transform: translate3d(0,0,0);
+			text-shadow: 0em 0em 0 $back;
+			color: $front;
+		}
+		70%{
+			transform: translate3d($d,-$d,0);
+			text-shadow: -$d $d $back;
+			color: $front;
+		}
+		100%{
+			transform: translate3d($d,-$d,0);
+			text-shadow: -$d $d $back;
+			color: $front;
+		}
+	}
+	span{
+		position: relative;
+		display: inline-block;
+		animation: ani $t infinite alternate $e;
+		@for $i from 1 through $n{
+			&:nth-last-child(#{$i}n){ animation-delay: -$t*$i/$n/2;}
+		}
+	}
 }
 
-@media screen and (min-width: 1024px) {
+// #Endregion Logo
 
-  body {
-    background-color: #EBC79E;
+
+
+
+
+.listing {
+    margin: 2.5rem 1.5rem;
+
+    @media (min-width: 1920px) {
+      margin: 3rem 1.5rem;
+    }
+
+    @media (min-width: 1920px) {
+      margin: 5.1rem;
+    }
   }
 
-  .bg-header {
-    background-color: #A68064;
+  .listing__head {
     display: flex;
-    justify-content: center;
-    width: 100vw;
-    height: 20px;
-    border: 1px solid #5C3317;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 1920px) {
+      margin-bottom: 2rem;
+    }
   }
 
-}
+  .listing__title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+
+    @media (min-width: 1920px) {
+      font-size: 2.4rem;
+    }
+  }
+
+  .listing__explore {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    color: red;
+    letter-spacing: 1px;
+
+    @media (min-width: 1366px) {
+      font-size: 1.4rem;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+  }
+
+
+  .listing-item-style {
+    background-color: #212121;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: red;
+    border-radius: 5px;
+    margin: 11px 5px 11px;
+    position: relative;
+    cursor: pointer;
+
+    &:focus {
+      outline-style: none;
+    }
+
+    img {
+      width: 100%;
+      transition: all .5s ease-out;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    h6 {
+      font-size: 14px;
+      overflow: hidden;
+      margin: 5px 4px;
+      text-transform: uppercase;
+      font-family: Dosis, sans-serif;
+      font-weight: 700;
+      padding: 2px 2px;
+      color: red;
+      width: auto;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+    }
+
+    .rate {
+      font-size: 12px;
+      background: rgba(11, 26, 42, .95);
+      padding: 1px 7px;
+      border-radius: 5px;
+      position: absolute;
+      top: 0px;
+      left: 8px;
+
+      i {
+        font-size: 16px;
+        margin-right: 5px;
+      }
+
+      .material-icons {
+        color: grey;
+      }
+
+      span {
+        color: grey;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+
+    .year {
+      position: absolute;
+      left: 6px;
+      background: rgba(11, 26, 42, 0.95);
+      padding: 1px 7px;
+      border-radius: 5px;
+      top: auto;
+      bottom: 21px;
+      color: #fff;
+      pointer-events: none;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .listing-item-style{
+      margin: 5px;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: transparent;
+  }
+
+
+  .hover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: Dosis, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background-color: grey;
+    padding: 8px 15px;
+    z-index: 2;
+    width: 120px;
+    height: 38px;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: all .5s ease-out;
+
+    i {
+      position: absolute;
+      line-height: 25px;
+      font-size: 13px;
+      left: 13px;
+    }
+  }
+
+  .listing-item-style:hover .overlay {
+    opacity: 1;
+  }
+

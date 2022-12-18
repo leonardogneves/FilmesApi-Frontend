@@ -1,3 +1,5 @@
+import { TmdbService } from './services/tmdb.service';
+import { MovieService } from './services/movie.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,14 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'portfolio';
 
-  constructor() {
+  constructor(
+    public movieService: MovieService,
+    public tmdbService: TmdbService
+  ) {
 
   }
 
-ngOnInit(): void {
-
+ngOnInit() {
+  this.movieService.listarTodosProdutos();
 }
 }
 

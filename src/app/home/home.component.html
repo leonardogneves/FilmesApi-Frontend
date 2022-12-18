@@ -1,17 +1,74 @@
-<header>
-  <div class="bg-header">
+<div class="listing">
+  <div class="listing__head">
+      <p class="logo_title">
+        <span>M</span>
+        <span>A</span>
+        <span>X</span>
+        <span>F</span>
+        <span>L</span>
+        <span>I</span>
+        <span>X</span>
+      </p>
   </div>
-</header>
+  <form>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="form-group">
+                  <div class="input-group">
+                      <input type="text" class="form-control searchdesign" placeholder="Busque por filmes" [(ngModel)]="searchStr"
+                          name="searchStr" (keyup.enter)="searchMovies()">
+                      <span class="input-group-btn">
+                          <button class="btn btn-primary btnDesign" type="button" (click)="searchMovies()">🔍</button>
+                      </span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>
 
-<main>
-<table>
-  <th>Titulo</th>
-  <th>Gênero</th>
-  <th>Duração</th>
-  <tr *ngFor="let r of resultadoFilme">
-    <td>{{r.titulo}}</td>
-    <td>{{r.genero}}</td>
-    <td>{{r.duracao}}</td>
-  </tr>
-</table>
-</main>
+  <ng-container *ngIf="!searchRes">
+      <div class="row" *ngIf="!loader">
+          <div class="col-md-2 listing__items" *ngFor="let movie of topRated;">
+              <div [routerLink]="['/movies/', movie.id]">
+                  <div class="listing-item-style">
+                      <div class="overlay">
+                          <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
+                      </div>
+                      <img *ngIf="movie?.poster_path" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.poster_path}}"
+                          [alt]="movie.title ? movie.title : movie.name">
+                      <img *ngIf="!movie?.poster_path" src="assets/images/default-movie.png"
+                          [alt]="movie.title ? movie.title : movie.name">
+                      <h6>{{ movie?.title }}</h6>
+                      <p class="rate"><i class="material-icons">star</i><span>{{movie?.vote_average}}</span> /10</p>
+                      <p class="year"><span>{{movie?.release_date | date: 'yyyy'}}</span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </ng-container>
+
+
+  <!-- <div class="row" *ngIf="!loader">
+      <div class="col-md-2 listing__items" *ngFor="let movie of topRated;">
+          <div [routerLink]="['/movies/', movie.id]">
+              <div class="listing-item-style">
+                  <div class="overlay">
+                      <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
+                  </div>
+                  <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.poster_path}}"
+                      [alt]="movie.title ? movie.title : movie.name">
+                  <img *ngIf="!movie?.poster_path" src="assets/images/default-movie.png"
+                      [alt]="movie.title ? movie.title : movie.name">
+                  <h6>{{ movie?.title }}</h6>
+                  <p class="rate"><i class="material-icons">star</i><span>{{movie?.vote_average}}</span> /10</p>
+                  <p class="year"><span>{{movie?.release_date | date: 'yyyy'}}</span>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div> -->
+
+  <mat-paginator [length]="totalResults" [pageSize]="20" (page)="changePage($event)"></mat-paginator>
+
+</div>
